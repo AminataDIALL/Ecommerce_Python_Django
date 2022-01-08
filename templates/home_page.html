@@ -1,37 +1,4 @@
-from django.http import HttpResponse
-from django.shortcuts import render
-
-
-def home_page_initiant(request):
-
-    return render(request, 'home_page.html', {})
-
-
-def home_page(request):
-    context = {
-        "title" : "Hello World",
-        "content" : "Welcome to home Page"
-    }
-    return render(request, 'home_page.html', context)
-
-def about_page(request):
-    context = {
-        "title" : "About Page",
-        "content" : "Welcome to about Page"
-    }
-    return render(request, 'home_page.html', context)
-
-def contact_page(request):
-    context = {
-        "title" : "Contact",
-        "content" : "Welcome to contact Page"
-    }
-    return render(request, 'home_page.html', context)
-
-def home_page_old(request):
-    html_ = """
-
-        <!doctype html>
+<!doctype html>
         <html lang="en">
             <head>
                 <!-- Required meta tags -->
@@ -43,7 +10,19 @@ def home_page_old(request):
             </head>
             <body>
                 <div class ='text-center'>
-                    <h1>Hello, world!</h1>
+                    <h1>{{title}}</h1>
+                    <h1>Hello, world We're working!</h1>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+
+                            <p>{{content}}</p>
+
+                        </div>
+
+                    </div>
+
                 </div>
                 <!-- Optional JavaScript; choose one of the two! -->
 
@@ -57,6 +36,3 @@ def home_page_old(request):
                 -->
             </body>
         </html>
-
-    """
-    return HttpResponse(html_)
